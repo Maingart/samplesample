@@ -10,3 +10,6 @@ class Follow(models.Model):
         'auth.User', on_delete=models.CASCADE, related_name='followers'
     )
     followed = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f'{self.follower.username} -> {self.follows.username}'
