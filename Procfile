@@ -1,2 +1,1 @@
-web: python manage.py migrate && gunicorn sample.wsgi
-web: python manage.py add_users 10
+web: python manage.py migrate &&  python manage.py add_users 10 && gunicorn sample.wsgi
