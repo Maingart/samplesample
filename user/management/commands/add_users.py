@@ -12,7 +12,7 @@ class Command(BaseCommand):
         n: int = options['n']
 
         for i in range(options['n']):
-            user = User.objects.create(username=f'User {i}')
+            user = User.objects.get_or_create(username=f'User {i}')
             user.save()
 
         self.stdout.write(self.style.SUCCESS('Successfully add %s users' %
