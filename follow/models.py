@@ -12,4 +12,5 @@ class Follow(models.Model):
     followed = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:
+
         return f'{self.follower.username} -> {self.follows.username}'
