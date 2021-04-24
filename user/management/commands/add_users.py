@@ -11,9 +11,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         n: int = options['n']
 
-        for i in range(options['n']):
-            user = User.objects.get_or_create(username=f'User {i}')
-            user.save()
+        last_i = User.objects.last().id
+        for i in range(1, options['n'] + 1):
+            user = User.objects.get_or_create(username=f'User {last_i + i}')
 
-        self.stdout.write(self.style.SUCCESS('Successfully add %s users' %
-                                             n))
+        self.stdout.write(self.style.SUCCESS('Successfully add %s users' % n))
